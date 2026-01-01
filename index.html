@@ -3,34 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login & Registration</title>
+    <title>Login & Registration - CateringPro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Catering & Event Work Slots</h1>
+        <h1>CateringPro</h1>
     </header>
 
     <main id="auth-container">
         <!-- Login Form -->
         <section id="login-view" class="auth-view active">
-            <h2>Login</h2>
+            <h2>Welcome Back</h2>
             <form id="login-form">
                 <label for="login-username">Username</label>
-                <input type="text" id="login-username" required>
+                <input type="text" id="login-username" required placeholder="e.g., student">
                 
                 <label for="login-password">Password</label>
-                <input type="password" id="login-password" required>
+                <input type="password" id="login-password" required placeholder="e.g., password">
                 
                 <button type="submit">Login</button>
-                <p id="login-error" class="error-message hidden">Invalid username or password.</p>
+                <p id="login-error" class="error-message hidden">Invalid credentials. Please try again.</p>
             </form>
-            <p class="toggle-link">Don't have an account? <a href="#" id="show-register">Register here</a></p>
+            <p class="toggle-link">No account yet? <a href="#" id="show-register">Register Now</a></p>
         </section>
 
         <!-- Registration Form -->
         <section id="register-view" class="auth-view">
-            <h2>Register</h2>
+            <h2>Create Account</h2>
             <form id="register-form">
                 <label for="register-username">Username</label>
                 <input type="text" id="register-username" required>
@@ -44,11 +47,11 @@
                     <option value="company">Catering Company</option>
                 </select>
                 
-                <button type="submit">Register</button>
-                <p id="register-error" class="error-message hidden">Username already exists.</p>
+                <button type="submit">Create Account</button>
+                <p id="register-error" class="error-message hidden">Username already taken.</p>
                  <p id="register-success" class="success-message hidden">Registration successful! Please login.</p>
             </form>
-            <p class="toggle-link">Already have an account? <a href="#" id="show-login">Login here</a></p>
+            <p class="toggle-link">Already have an account? <a href="#" id="show-login">Login Instead</a></p>
         </section>
     </main>
 
