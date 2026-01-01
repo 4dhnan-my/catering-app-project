@@ -26,6 +26,9 @@ header h1 {
 /* Navigation Styles */
 nav {
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
 nav button {
@@ -36,7 +39,6 @@ nav button {
     border-radius: 5px;
     cursor: pointer;
     font-size: 1em;
-    margin: 0 5px;
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -47,6 +49,16 @@ nav button:hover {
 
 nav button.active {
     background-color: #007bff;
+    color: #fff;
+}
+
+#logout-btn {
+    border-color: #dc3545;
+    color: #dc3545;
+}
+
+#logout-btn:hover {
+    background-color: #dc3545;
     color: #fff;
 }
 
@@ -137,36 +149,51 @@ h2 {
     cursor: not-allowed;
 }
 
-/* Add Slot Form Styles */
-#add-slot-form {
+/* Add Slot & Login Form Styles */
+#add-slot-form, #login-form {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    max-width: 400px;
+    margin: auto;
 }
 
-#add-slot-form label {
+#add-slot-form label, #login-form label {
     font-weight: bold;
 }
 
 #add-slot-form input,
 #add-slot-form textarea,
-#add-slot-form button {
+#add-slot-form button,
+#login-form input,
+#login-form select,
+#login-form button {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1em;
 }
 
-#add-slot-form button {
+#add-slot-form button, #login-form button {
     background-color: #007bff;
     color: #fff;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-#add-slot-form button:hover {
+#add-slot-form button:hover, #login-form button:hover {
     background-color: #0056b3;
 }
+
+#login-error {
+    color: #dc3545;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
 
 /* Confirmation Message */
 #confirmation-message {
@@ -187,9 +214,4 @@ h2 {
 #confirmation-message.show {
     opacity: 1;
     visibility: visible;
-}
-
-#confirmation-message.hidden {
-    opacity: 0;
-    visibility: hidden;
 }
