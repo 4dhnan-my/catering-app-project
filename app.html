@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catering & Event Work Slots</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Catering & Event Work Slots</h1>
+        <p>Find and book flexible work slots for students.</p>
+        <nav>
+            <button id="show-slots-btn" class="active">Available Slots</button>
+            <button id="show-add-slot-btn">Add a Slot</button>
+            <button id="logout-btn">Logout</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="available-slots" class="view active">
+            <h2>Available Slots</h2>
+            <div id="slots-container">
+                <!-- Job slots will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <section id="add-slot" class="view">
+            <h2>Add a New Slot</h2>
+            <form id="add-slot-form">
+                <label for="company-name">Company or Event Name</label>
+                <input type="text" id="company-name" required>
+                
+                <label for="start-time">Work Start Time</label>
+                <input type="time" id="start-time" required>
+                
+                <label for="work-hours">Number of Working Hours</label>
+                <input type="number" id="work-hours" required>
+                
+                <label for="payout">Payout in ₹</label>
+                <input type="number" id="payout" required>
+                
+                <label for="uniform-details">Uniform Details</label>
+                <input type="text" id="uniform-details" required>
+                
+                <label for="special-notes">Special Notes</label>
+                <textarea id="special-notes"></textarea>
+                
+                <button type="submit">Add Slot</button>
+            </form>
+        </section>
+    </main>
+
+    <div id="confirmation-message" class="hidden">
+        <p>Slot booked successfully!</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
