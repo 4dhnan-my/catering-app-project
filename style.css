@@ -1,8 +1,19 @@
+:root {
+    --primary-bg: #121212;
+    --secondary-bg: #1E1E1E;
+    --card-bg: #2a2a2a;
+    --primary-text: #E0E0E0;
+    --secondary-text: #a0a0a0;
+    --glow-green: #39FF14;
+    --glow-red: #FF3914;
+    --font-family: 'Poppins', sans-serif;
+}
+
 /* General Body Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
+    font-family: var(--font-family);
+    background-color: var(--primary-bg);
+    color: var(--primary-text);
     line-height: 1.6;
     margin: 0;
     padding: 20px;
@@ -10,99 +21,102 @@ body {
 
 /* Header Styles */
 header {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 20px;
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-bottom: 30px;
 }
 
 header h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--glow-green);
+    text-shadow: 0 0 5px var(--glow-green), 0 0 10px var(--glow-green);
     margin: 0;
-    color: #333;
 }
 
 /* --- Authentication Page Styles --- */
 #auth-container {
     max-width: 400px;
     margin: 40px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: var(--secondary-bg);
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid var(--glow-green);
+    box-shadow: 0 0 15px rgba(57, 255, 20, 0.2);
 }
 
-.auth-view {
-    display: none;
-}
-
-.auth-view.active {
-    display: block;
-}
+.auth-view { display: none; }
+.auth-view.active { display: block; }
 
 .auth-view h2 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    font-weight: 600;
+    color: var(--primary-text);
 }
 
 .auth-view form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
 }
 
 .auth-view label {
-    font-weight: bold;
+    font-weight: 400;
+    font-size: 0.9em;
+    color: var(--secondary-text);
 }
 
 .auth-view input,
-.auth-view select,
-.auth-view button {
+.auth-view select {
     padding: 12px;
-    border: 1px solid #ddd;
+    border: 1px solid #444;
     border-radius: 5px;
     font-size: 1em;
+    background-color: var(--primary-bg);
+    color: var(--primary-text);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.auth-view input:focus,
+.auth-view select:focus {
+    outline: none;
+    border-color: var(--glow-green);
+    box-shadow: 0 0 8px rgba(57, 255, 20, 0.5);
 }
 
 .auth-view button {
-    background-color: #007bff;
-    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: 600;
+    background: var(--glow-green);
+    color: var(--primary-bg);
     cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .auth-view button:hover {
-    background-color: #0056b3;
+    background-color: #32e213;
+    box-shadow: 0 0 12px rgba(57, 255, 20, 0.7);
 }
 
 .toggle-link {
     text-align: center;
-    margin-top: 20px;
-}
-
-.toggle-link a {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.error-message {
-    color: #dc3545;
-    text-align: center;
+    margin-top: 25px;
     font-size: 0.9em;
 }
 
-.success-message {
-    color: #28a745;
-    text-align: center;
-    font-weight: bold;
+.toggle-link a {
+    color: var(--glow-green);
+    text-decoration: none;
+    font-weight: 600;
 }
 
-.hidden {
-    display: none;
-}
+.error-message { color: var(--glow-red); text-align: center; font-size: 0.9em; }
+.success-message { color: var(--glow-green); text-align: center; font-weight: bold; }
+.hidden { display: none; }
 
 
 /* --- App Page Styles --- */
@@ -112,175 +126,158 @@ nav {
     margin-top: 20px;
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 15px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #333;
 }
 
 nav button {
     background-color: transparent;
-    border: 1px solid #007bff;
-    color: #007bff;
+    border: 1px solid #444;
+    color: var(--secondary-text);
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1em;
-    transition: background-color 0.3s, color 0.3s;
+    font-weight: 600;
+    transition: all 0.3s;
 }
 
 nav button:hover {
-    background-color: #007bff;
-    color: #fff;
+    color: var(--glow-green);
+    border-color: var(--glow-green);
 }
 
 nav button.active {
-    background-color: #007bff;
-    color: #fff;
+    color: var(--primary-bg);
+    background-color: var(--glow-green);
+    border-color: var(--glow-green);
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
 }
 
-#logout-btn {
-    border-color: #dc3545;
-    color: #dc3545;
-}
+#logout-btn { border-color: var(--glow-red); color: var(--glow-red); }
+#logout-btn:hover { background-color: var(--glow-red); color: var(--primary-bg); }
 
-#logout-btn:hover {
-    background-color: #dc3545;
-    color: #fff;
-}
+/* Main Content & Section Styles */
+main:not(#auth-container) { padding-top: 20px; }
+.view { display: none; }
+.view.active { display: block; }
 
-/* Main Content Styles */
-main:not(#auth-container) {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-}
-
-/* View Styles */
-.view {
-    display: none;
-}
-
-.view.active {
-    display: block;
-}
-
-/* Section Styles */
-section {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-h2 {
-    border-bottom: 2px solid #ddd;
+section h2 {
+    color: var(--primary-text);
+    font-weight: 600;
+    border-bottom: 2px solid var(--glow-green);
     padding-bottom: 10px;
-    margin-top: 0;
+    margin-bottom: 20px;
 }
 
-/* Slots Container */
+/* Slots Container & Card Styles */
 #slots-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
 }
 
-/* Slot Card Styles */
 .slot-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: var(--card-bg);
+    border: 1px solid #333;
     border-radius: 8px;
-    padding: 15px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    transition: box-shadow 0.3s ease;
-}
-
-.slot-card.booked {
-    background-color: #e9ecef;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .slot-card:hover {
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
+
+.slot-card.booked { background-color: #222; }
 
 .slot-card h3 {
     margin-top: 0;
-    font-size: 1.2em;
-    color: #0056b3;
+    font-size: 1.4em;
+    font-weight: 600;
+    color: var(--glow-green);
 }
 
 .slot-card p {
-    margin: 5px 0;
+    margin: 8px 0;
+    color: var(--secondary-text);
+}
+.slot-card p strong {
+    color: var(--primary-text);
 }
 
-.slot-card .book-slot-btn {
-    background-color: #28a745;
-    color: #fff;
+.book-slot-btn {
+    background-color: var(--glow-green);
+    color: var(--primary-bg);
     border: none;
-    padding: 10px 15px;
+    padding: 12px 15px;
     border-radius: 5px;
     cursor: pointer;
     width: 100%;
-    margin-top: 10px;
+    margin-top: 15px;
     font-size: 1em;
-    transition: background-color 0.3s ease;
+    font-weight: 700;
+    transition: all 0.3s ease;
 }
 
-.slot-card .book-slot-btn:hover {
-    background-color: #218838;
+.book-slot-btn:hover:not(:disabled) {
+    box-shadow: 0 0 12px rgba(57, 255, 20, 0.7);
 }
 
-.slot-card .book-slot-btn:disabled {
-    background-color: #6c757d;
+.book-slot-btn:disabled {
+    background-color: #555;
+    color: #888;
     cursor: not-allowed;
 }
 
 /* Add Slot Form Styles */
 #add-slot-form {
+    background-color: var(--secondary-bg);
+    padding: 25px;
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
-
-#add-slot-form label {
-    font-weight: bold;
-}
-
-#add-slot-form input,
-#add-slot-form textarea,
-#add-slot-form button {
+#add-slot-form label { font-weight: 600; }
+#add-slot-form input, #add-slot-form textarea {
+    background-color: var(--primary-bg);
+    border: 1px solid #444;
+    color: var(--primary-text);
     padding: 10px;
-    border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1em;
 }
-
 #add-slot-form button {
-    background-color: #007bff;
-    color: #fff;
+    background-color: var(--glow-green);
+    color: var(--primary-bg);
+    font-weight: 700;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s;
 }
-
 #add-slot-form button:hover {
-    background-color: #0056b3;
+    box-shadow: 0 0 12px rgba(57, 255, 20, 0.7);
 }
 
 /* Confirmation Message */
 #confirmation-message {
     position: fixed;
-    bottom: 20px;
+    bottom: -100px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #28a745;
-    color: #fff;
+    background-color: var(--glow-green);
+    color: var(--primary-bg);
     padding: 15px 30px;
     border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transition: opacity 0.5s, visibility 0.5s;
-    opacity: 0;
-    visibility: hidden;
+    font-weight: 600;
+    box-shadow: 0 0 15px rgba(57, 255, 20, 0.5);
+    transition: bottom 0.5s ease-in-out;
 }
-
 #confirmation-message.show {
-    opacity: 1;
-    visibility: visible;
+    bottom: 20px;
 }
