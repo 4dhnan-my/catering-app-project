@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catering & Event Work Slots</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Catering & Event Work Slots</h1>
+        <p>Find and book flexible work slots for students.</p>
+    </header>
+
+    <main>
+        <section id="available-slots">
+            <h2>Available Slots</h2>
+            <div id="slots-container">
+                <!-- Job slots will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <section id="add-slot">
+            <h2>Add a New Slot</h2>
+            <form id="add-slot-form">
+                <input type="text" id="company-name" placeholder="Company or Event Name" required>
+                <input type="time" id="start-time" required>
+                <input type="number" id="work-hours" placeholder="Number of Working Hours" required>
+                <input type="number" id="payout" placeholder="Payout in ₹" required>
+                <input type="text" id="uniform-details" placeholder="Uniform Details" required>
+                <textarea id="special-notes" placeholder="Special Notes"></textarea>
+                <button type="submit">Add Slot</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
