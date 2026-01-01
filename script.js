@@ -1,4 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Check for user role on page load
+    const userRole = localStorage.getItem('userRole');
+    if (!userRole) {
+        // If no role is found, redirect to the login page
+        window.location.href = 'index.html';
+        return;
+    }
+
     // Initial array of job slots
     const slots = [
         {
@@ -34,13 +42,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const addSlotForm = document.getElementById('add-slot-form');
     const showSlotsBtn = document.getElementById('show-slots-btn');
     const showAddSlotBtn = document.getElementById('show-add-slot-btn');
+    const logoutBtn = document.getElementById('logout-btn');
     const availableSlotsView = document.getElementById('available-slots');
     const addSlotView = document.getElementById('add-slot');
     const confirmationMessage = document.getElementById('confirmation-message');
 
+    // Handle UI based on user role
+    if (userRole === 'student') {
+        showAddSlotBtn.style.display = 'none';
+    }
+
     // Function to switch between views
     function switchView(viewToShow) {
-        if (viewToShow === 'add') {
+        if (viewToShow === 'add' && userRole === 'company') {
             addSlotView.classList.add('active');
             availableSlotsView.classList.remove('active');
             showAddSlotBtn.classList.add('active');
@@ -56,6 +70,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Event listeners for view switching
     showSlotsBtn.addEventListener('click', () => switchView('slots'));
     showAddSlotBtn.addEventListener('click', () => switchView('add'));
+    logoutBtn.addEventListener('click', () => {
+        localStorage.removeItem('userRole');
+        window.location.href = 'index.html';
+    });
 
     // Function to render the job slots
     function renderSlots() {
@@ -74,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p><strong>Payout:</strong> ₹${slot.payout}</p>
                 <p><strong>Uniform:</strong> ${slot.uniform}</p>
                 <p><strong>Notes:</strong> ${slot.notes}</p>
-                <button class="book-slot-btn" data-index="${index}" ${slot.booked ? 'disabled' : ''}>
+                <button class="book-slot-btn" data-index="${index}" ${slot.booked || userRole === 'company' ? 'disabled' : ''}>
                     ${slot.booked ? 'Booked' : 'Book Slot'}
                 </button>
             `;
@@ -125,6 +143,8 @@ document.addEventListener('DOMContentLoaded', () => {
         addSlotForm.reset();
         switchView('slots'); // Switch back to slots view after adding
     }
+
+
 
     // Add form submission event listener
     addSlotForm.addEventListener('submit', handleAddSlot);
