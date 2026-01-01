@@ -23,6 +23,90 @@ header h1 {
     color: #333;
 }
 
+/* --- Authentication Page Styles --- */
+#auth-container {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.auth-view {
+    display: none;
+}
+
+.auth-view.active {
+    display: block;
+}
+
+.auth-view h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.auth-view form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.auth-view label {
+    font-weight: bold;
+}
+
+.auth-view input,
+.auth-view select,
+.auth-view button {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.auth-view button {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.auth-view button:hover {
+    background-color: #0056b3;
+}
+
+.toggle-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.toggle-link a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.error-message {
+    color: #dc3545;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.success-message {
+    color: #28a745;
+    text-align: center;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* --- App Page Styles --- */
+
 /* Navigation Styles */
 nav {
     margin-top: 20px;
@@ -63,7 +147,7 @@ nav button.active {
 }
 
 /* Main Content Styles */
-main {
+main:not(#auth-container) {
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
@@ -149,51 +233,36 @@ h2 {
     cursor: not-allowed;
 }
 
-/* Add Slot & Login Form Styles */
-#add-slot-form, #login-form {
+/* Add Slot Form Styles */
+#add-slot-form {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    max-width: 400px;
-    margin: auto;
 }
 
-#add-slot-form label, #login-form label {
+#add-slot-form label {
     font-weight: bold;
 }
 
 #add-slot-form input,
 #add-slot-form textarea,
-#add-slot-form button,
-#login-form input,
-#login-form select,
-#login-form button {
+#add-slot-form button {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1em;
 }
 
-#add-slot-form button, #login-form button {
+#add-slot-form button {
     background-color: #007bff;
     color: #fff;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-#add-slot-form button:hover, #login-form button:hover {
+#add-slot-form button:hover {
     background-color: #0056b3;
 }
-
-#login-error {
-    color: #dc3545;
-    text-align: center;
-}
-
-.hidden {
-    display: none;
-}
-
 
 /* Confirmation Message */
 #confirmation-message {
