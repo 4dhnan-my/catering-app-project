@@ -23,6 +23,33 @@ header h1 {
     color: #333;
 }
 
+/* Navigation Styles */
+nav {
+    margin-top: 20px;
+}
+
+nav button {
+    background-color: transparent;
+    border: 1px solid #007bff;
+    color: #007bff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin: 0 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav button:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+nav button.active {
+    background-color: #007bff;
+    color: #fff;
+}
+
 /* Main Content Styles */
 main {
     display: grid;
@@ -30,10 +57,13 @@ main {
     gap: 20px;
 }
 
-@media (min-width: 768px) {
-    main {
-        grid-template-columns: 2fr 1fr;
-    }
+/* View Styles */
+.view {
+    display: none;
+}
+
+.view.active {
+    display: block;
 }
 
 /* Section Styles */
@@ -65,6 +95,10 @@ h2 {
     padding: 15px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     transition: box-shadow 0.3s ease;
+}
+
+.slot-card.booked {
+    background-color: #e9ecef;
 }
 
 .slot-card:hover {
@@ -107,7 +141,11 @@ h2 {
 #add-slot-form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
+}
+
+#add-slot-form label {
+    font-weight: bold;
 }
 
 #add-slot-form input,
@@ -128,4 +166,30 @@ h2 {
 
 #add-slot-form button:hover {
     background-color: #0056b3;
+}
+
+/* Confirmation Message */
+#confirmation-message {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #28a745;
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: opacity 0.5s, visibility 0.5s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+#confirmation-message.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#confirmation-message.hidden {
+    opacity: 0;
+    visibility: hidden;
 }
